@@ -1,0 +1,35 @@
+<div id="authenticator">
+  <mat-card id="authenticator-content">
+    <mat-card-header>
+      <mat-card-title>Login</mat-card-title>
+    </mat-card-header>
+    <div [formGroup]="loginForm">
+      <input
+        #loginEmail
+        mat-input
+        formControlName="email"
+        name="email"
+        placeholder="Your email here"
+        autocomplete="off"
+        type="email"
+      />
+      <input
+        #loginPassword
+        mat-input
+        autocomplete="off"
+        placeholder="Your password here"
+        type="password"
+        formControlName="password"
+        name="password"
+      />
+      <button
+        (click)="onLogin(loginEmail, loginPassword)"
+        mat-flat-button
+        [disabled]="loginForm.invalid"
+        type="submit"
+      >
+        Login
+      </button>
+    </div>
+  </mat-card>
+</div>

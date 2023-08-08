@@ -1,0 +1,56 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>Crie seu post</mat-card-title>
+  </mat-card-header>
+  <div>
+    <textarea
+      maxlength="30"
+      #titleInput
+      placeholder="Escreva seu título aqui!"
+      class="textTitle"
+      minlength="5"
+    ></textarea>
+    <textarea placeholder="Escreva seu conteúdo aqui" class="textContent" #descriptionInput minlength="10"></textarea>
+  </div>
+  <div *ngIf="selectedImageFile" id="post-preview">
+    <img id="post-preview-image" />
+  </div>
+
+  <div *ngIf="selectedVideoFile" id="video-preview">
+    <img id="post-preview-video" />
+  </div>
+
+  <mat-card-actions align="end">
+    <div class="buttons">
+      <button mat-button color="warn">
+        <label for="photo-upload">
+          <input
+            #photoSelector
+            (change)="onPhotoSelected(photoSelector)"
+            id="photo-upload"
+            type="file"
+            accept="images/*"
+          />
+          <mat-icon>insert_photo</mat-icon>
+        </label>
+      </button>
+
+      <button mat-button color="warn">
+        <label for="video-upload">
+          <input
+            #videoSelector
+            (change)="onSelectFile(videoSelector)"
+            id="video-upload"
+            type="file"
+            accept="videos/*"
+          />
+          <mat-icon>videocam</mat-icon>
+        </label>
+      </button>
+
+      <button (click)="onPostClick(descriptionInput, titleInput)" mat-flat-button>
+        Postar
+      </button>
+    </div>
+  </mat-card-actions>
+</mat-card>

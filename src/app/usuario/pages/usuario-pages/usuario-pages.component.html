@@ -1,0 +1,81 @@
+<app-nav-bar></app-nav-bar>
+<app-side-bar></app-side-bar>
+<main>
+    <section class="container">
+        <mat-card class="example-card">
+            <mat-card-actions align="end">
+                <button id="editprofile" mat-raised-button (click)="openDialog('1000ms', '1500ms')">Editar
+                    Perfil</button>
+            </mat-card-actions>
+            <div id="teste">
+
+                <img id="avatar" mat-card-md-image src="{{this.userInfos?.photoURL}}" width="100px">
+                <mat-card-title>{{userInfos?.name}}</mat-card-title>
+                <mat-card-subtitle>@{{userInfos?.username}}</mat-card-subtitle>
+                <mat-card-content>
+                    <span id="bio" *ngIf="userInfos?.bio == null; else teste"><b> 404 bio not found</b></span>
+                    <ng-template #teste> {{ userInfos?.bio }}</ng-template>
+                </mat-card-content>
+                <a href="https://github.com/{{userInfos?.username}}" target="_blank"><img src="assets/github-icon.png"
+                        alt="" width="30px"></a>
+            </div>
+        </mat-card>
+    </section>
+    <section class="repositories">
+        <table mat-table [dataSource]="userRepositories" class="mat-elevation-z8">
+            <ng-container matColumnDef="name">
+                <th mat-header-cell *matHeaderCellDef> Nome</th>
+                <td mat-cell *matCellDef="let element"> <a
+                        href="https://github.com/{{userInfos?.username}}/{{element.name}}"
+                        target="_blank">{{element.name}}</a></td>
+            </ng-container>
+
+
+            <ng-container matColumnDef="description">
+                <th mat-header-cell *matHeaderCellDef> Descrição</th>
+                <td mat-cell *matCellDef="let element"> {{element.description}} </td>
+            </ng-container>
+
+
+            <ng-container matColumnDef="language">
+                <th mat-header-cell *matHeaderCellDef> Linguagem </th>
+                <td mat-cell *matCellDef="let element"> {{element.language}} </td>
+            </ng-container>
+
+
+            <ng-container matColumnDef="created_at">
+                <th mat-header-cell *matHeaderCellDef> Data de criação </th>
+                <td mat-cell *matCellDef="let element"> {{element.created_at | date: 'dd/MM/yyyy'}} </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+    </section>
+
+
+    <!--  <section class="container2">
+        <div id="left">
+            <p>
+                0 publicações
+            </p>
+            <p>
+                0 comentários
+            </p>
+            <p>
+                0 tags seguidas
+            </p>
+        </div>
+
+        <div id="right">
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Non expedita dolor atque dolorem, odio
+                eaque rerum in provident sapiente, hic tempora modi corporis nihil mollitia laborum deleniti quia,
+                aperiam
+                eius?</p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Non expedita dolor atque dolorem, odio
+                eaque rerum in provident sapiente, hic tempora modi corporis nihil mollitia laborum deleniti quia,
+                aperiam
+                eius?</p>
+        </div>
+    </section> -->
+</main>

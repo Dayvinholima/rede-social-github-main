@@ -1,0 +1,41 @@
+#authenticator {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1em;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+}
+
+#authenticator-content {
+  width: 100%;
+  padding: 1.5em;
+  max-width: 30em;
+}
+
+button {
+  margin: 0.5em;
+  background-color: #525252;
+}
+button:hover {
+  opacity: 0.4;
+}
+
+input {
+  width: 100%;
+  padding: 1em;
+  margin: 0.5em;
+  border-radius: 5px;
+  outline: none;
+  border: 1px solid rebeccapurple;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+}
+mat-card-title {
+  color: #ffffff;
+}
+mat-card {
+  background-color: rgb(19, 19, 19);
+}

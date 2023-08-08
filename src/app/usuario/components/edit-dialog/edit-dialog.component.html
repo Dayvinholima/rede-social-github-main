@@ -1,0 +1,28 @@
+<section>
+    <form action="" [formGroup]="profileForm">
+        <br>
+        <mat-form-field appearance="fill">
+            <mat-label>Nome</mat-label>
+            <input type="text" matInput placeholder="Novo nome" formControlName="name" readonly="true">
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+            <mat-label>Usuário</mat-label>
+            <input type="text" matInput placeholder="Descrição do cargo" formControlName="username" readonly="true">
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+            <mat-label>Bio</mat-label>
+            <input type="text" matInput placeholder="Salário" formControlName="bio">
+        </mat-form-field>
+        <div class="buttons">
+            <button class="formSubmit" type="submit" mat-raised-button color="accent" id="salvar"
+                matTooltip="Salvar atualizações do cargo" matTooltipPosition="above" (click)="setUserInfos()">Salvar
+                atualizações</button>
+            <button class="delete" mat-raised-button color="warn" matTooltipPosition="above"
+                (click)="deleteUser()">Deletar
+                Conta</button>
+        </div>
+
+    </form>
+</section>
